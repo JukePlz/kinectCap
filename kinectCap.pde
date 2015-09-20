@@ -62,8 +62,15 @@ void draw()
 
     if (!screenCapNew.exists())
     {
-      operation = "Save";
-      capturaKinect.save("C:/screenCapNew.jpg");
+      if (capturaKinect != null)
+      {
+        operation = "Save";
+        capturaKinect.save("C:/screenCapNew.jpg");
+      } else
+      {
+        println("Kinect is not connected. Exiting.");
+        exit();
+      }
     }
 
     File screenCap = new File("C:/screenCap.jpg");
